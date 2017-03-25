@@ -16,6 +16,10 @@ var foodItemSchema = new mongoose.Schema({
     }
 });
 
+foodItemSchema.statics.getByName = function (name, callback) {
+    return this.find({name: new RegExp(name, 'ig')}, callback);
+}
+
 var FoodItem = mongoose.model('FoodItem', foodItemSchema);
 
 module.exports = FoodItem;

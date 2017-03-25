@@ -27,9 +27,10 @@
       $('#search').keyup(function(){
         socket.emit('searchFoodItems',user,$(this).val());
       });
-
+      
       socket.on('displayFoodItems', function(data){
-        
+          // TODO: Handle search data
+        console.log(data);
       });
     });
   </script>

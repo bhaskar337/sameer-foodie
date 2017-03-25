@@ -3,7 +3,7 @@ var mongoose = require('mongoose');
 var itemSchema = new mongoose.Schema({
     item_id: {
         type: mongoose.Schema.ObjectId,
-        required: true
+        default: 0
     },
     name: {
         type: String,
