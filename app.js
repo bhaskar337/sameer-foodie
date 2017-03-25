@@ -1,4 +1,5 @@
  var express = require('express');
+ var mongoose = require('mongoose');
 
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -13,7 +14,8 @@ var app = express();
 var http = require('http').Server(app);
 
 var io = require('socket.io')(http);
-//var mongodb=require('mongodb');
+
+mongoose.connect('mongodb://localhost:27017/sameer_foodie');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
