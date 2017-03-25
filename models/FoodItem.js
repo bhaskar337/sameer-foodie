@@ -1,10 +1,5 @@
 var mongoose = require('mongoose');
 
-var convertSchema = new mongoose.Schema({
-    name: String,
-    ratio: Number
-});
-
 var foodItemSchema = new mongoose.Schema({
     name: {
         type: String,
@@ -14,7 +9,6 @@ var foodItemSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    convert: [convertSchema],
     buy_link: String,
     non_veg: {
         type: Boolean,

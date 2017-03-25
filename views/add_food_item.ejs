@@ -6,14 +6,11 @@
 <body>
     <form action="#" method="POST">
         Name:<input type="text" name="name"><br>
-        Unit:<input type="text" name="unit"><br>
+        Unit:<input type="text" name="unit" value="GM"><br>
         Buy Link:<input type="text" name="buy_link"><br>
-        <% for(var i = 0; i < 2; i++) {%>
-        Convert Name: <input type="text" name="convert_name[]"><br>
-        Convert Ratio: <input type="number" name="convert_ratio[]"><br>
-        <% } %>
         <input type="checkbox" name="non_veg">Non Veg<br>
         <input type="submit" value="submit">
     </form>
+    <%= saved %>
 </body>
 </html>

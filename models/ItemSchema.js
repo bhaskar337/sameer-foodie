@@ -5,6 +5,10 @@ var itemSchema = new mongoose.Schema({
         type: mongoose.Schema.ObjectId,
         required: true
     },
+    name: {
+        type: String,
+        required: true
+    },
     quantity: {
         type: Number,
         required: true
