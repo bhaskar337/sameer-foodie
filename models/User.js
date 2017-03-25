@@ -21,7 +21,7 @@ var userSchema = new mongoose.Schema({
         type: String,
         default: 'user'
     },
-    saved_recipes: []
+    saved_recipes: [mongoose.Schema.ObjectId]
 });
 
 var User = mongoose.model('User', userSchema);

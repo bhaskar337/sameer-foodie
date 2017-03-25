@@ -11,14 +11,14 @@ var foodItemSchema = new mongoose.Schema({
         required: true
     },
     unit: {
-        type: Number,
+        type: String,
         required: true
     },
     convert: [convertSchema],
     buy_link: String,
-    veg: {
+    non_veg: {
         type: Boolean,
-        default: true
+        default: false
     }
 });
 
