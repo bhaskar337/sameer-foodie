@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+	<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+	 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+	 <style type="text/css">
+   body{
+
+    background-image: url('lemon.jpg');
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    overflow:hidden; 
+   }
+   .container{
+    vertical-align: top;
+   }
+	 	.glyphicon.glyphicon-pencil,.glyphicon.glyphicon-trash{
+	 		font-size: 15px;
+	 		color: black;
+	 	}
+	 	.glyphicon.glyphicon-plus{
+	 		font-size:25px; 
+	 		color: black;
+	 	}
+	 	.center{
+
+	 		text-align: center;
+	 	}
+	 	.glyphicon{
+	 		padding: 20px;
+	 	}
+	 	.tooltip.bottom > .tooltip-arrow {
+  border-bottom-color: black;
+}
+.kk{
+
+	margin-left: 18%;
+  width: 60px;
+}
+#userOption{
+  
+ vertical-align: middle;
+ margin-top: 5%;
+}
+#userOption button{
+ margin-left: 30%;
+  width: 200px;
+}
+	 </style>
+</head>
+<body>
+	<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Sameer Foodie</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav pull-right">
+        
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white;">Hi username <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Edit my profile</a></li>
+            <li><a href="#">Logout</a></li>
+            
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+  
+  	
+  <div class="container" style="display: inline-block;">	
+  		<div id="head" class="col-md-4 ingredients" style="background-color: #ddd; margin: 3% 0% 0 5%; ">
+  		<h3>Ingredients in your kitchen</h3>
+  		<hr>
+  		
+  			
+  			
+		<div class="container-fluid center">
+			<a href="#modalDel" class="mdel"><div class="glyphicon glyphicon-trash" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete selected ingredient"></div></a>
+			<a href="#modalEdit" class="medit"><div class="glyphicon glyphicon-pencil" data-toggle="tooltip" data-placement="bottom" data-original-title="Update selected ingredient"></div></a>
+			<div data-toggle="modal" data-target="#modalAdd" class="glyphicon glyphicon-plus" data-toggle="tooltip" data-placement="bottom" data-original-title="Add new ingredient"></div>
+		</div>
+			
+  
+    </div>
+ 
+    
+    <div id="modalAdd" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    area-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        	   <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" area-hidden="true">
+                    ×</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                    Add new ingredient </h4>
+            </div>
+            <div class="modal-body">
+            <input class="form-control focusedInput" type="text" placeholder="Enter the name of ingredient" id="add"><br>
+            <input class="form-control focusedInput" type="text" placeholder="Enter Quantity" id="quantity"><br>
+    		        <button type="button" class="btn btn-primary-info center" id="addButton">ADD</button>
+			       </div>
+		       </div>
+	     </div>
+  </div>
+    <div id="modalEdit" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+          <div class="modal-header">
+                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+                    ×</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                    Edit Quantity</h4>
+            </div>
+            <div class="modal-body">
+            <h3></h3>
+            <input class="form-control focusedInput" type="text" placeholder="Enter Quantity" id="equantity"><br>
+            <button type="button" class="btn btn-primary-info center" id="saveButton">SAVE CHANGES</button>
+      </div>
+    </div>
+  </div></div>
+
+  <div class="col-md-6" id="userOption">
+    <button type="button" class="btn btn-primary">Generate Recipes</button><br> <br><br>    
+     <button type="button" class="btn btn-primary">Organize your meal</button><br> <br>  <br>  
+      <button type="button" class="btn btn-primary">Add a recipe</button>
+  </div>
+</div>
+ <div class="kk">
+      <div id="add1" data-toggle="modal" data-target="#modalAdd" class="glyphicon glyphicon-plus" data-toggle="tooltip" data-placement="bottom" data-original-title="Add new ingredient">
+      </div>
+    </div>
+  <script type="text/javascript">
+  	$(document).ready(function(){
+  		$("body").tooltip({   
+    selector: "[data-toggle='tooltip']",
+    container: "body"
+  });
+  		$('#addButton').click(function(){
+  			var ingredient = $('#add').val();
+  			var quan = $('#quantity').val();
+  			
+  			var tr='<div class="container-fluid"><div data-toggle="modal" data-target="#modalEdit" class="glyphicon glyphicon-pencil pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Add new ingredient"></h6></div><div onClick="idelete()" class="glyphicon glyphicon-trash pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete selected ingredient"></div></h6><h4>'+ingredient+'</h4><h6><p id="quant">'+quan+'</p><hr>';
+        console.log(ingredient);
+  			$('#head').append(tr);
+  		});
+
+      $('#saveButton').click(function(){
+        var quan=$('#equantity').val();
+        $("#quant").html(quan);
+
+      });
+      
+  	});
+    function idelete(){
+          $().remove();
+            console.log('Sayli');
+      }
+  </script>
+</body>
+</html>

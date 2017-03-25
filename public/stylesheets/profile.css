@@ -1,4 +1,25 @@
-
+body{
+  background-image: url('../images/lemon.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  overflow:hidden;
+}
+  
+.glyphicon-pencil,.glyphicon.glyphicon-trash{
+  font-size: 15px;
+  color: black;
+  padding: 20px;
+}
+.glyphicon.glyphicon-plus{
+  font-size:25px; 
+  color: black;
+  padding: 20px;
+}
+    
+.tooltip.bottom > .tooltip-arrow {
+  border-bottom-color: black;
+}
 .glyphicon-chevron-down{
   color:white;
 }
@@ -59,8 +80,7 @@
   position: absolute;
   width:50%;
   margin-left:300px;
-  border:1px solid #414141;
-}
+  }
 
 @media screen and (max-width:1200px){
 

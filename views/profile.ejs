@@ -7,6 +7,7 @@
   <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 
   <link rel="stylesheet" type="text/css" href="stylesheets/profile.css">
+  <link rel="stylesheet" type="text/css" href="style.css">
 
   <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
   <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
@@ -29,12 +30,12 @@
       });
       
       socket.on('displayFoodItems', function(data){
-          // TODO: Handle search data
+          // TODO: Handle search data-target
         console.log(data);
       });
 
       var obj = {
-          user_id: '58d69e519e9f7800206b29f3',
+          user_id: '58d6ac50decfb733a9f0f315',
           item_id: '58d65238bed2c11954911f3e',
           item_name: 'Ghee',
           quantity: '5',
@@ -48,6 +49,34 @@
           console.log(data);
       });
     });
+  </script>
+  
+  <script type="text/javascript">
+  	$(document).ready(function(){
+  		$("body").tooltip({   
+    selector: "[data-toggle='tooltip']",
+    container: "body"
+  });
+  		$('#addButton').click(function(){
+  			var ingredient = $('#add').val();
+  			var quan = $('#quantity').val();
+  			
+  			var tr='<div class="container-fluid"><div data-toggle="modal" data-target="#modalEdit" class="glyphicon glyphicon-pencil pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Add new ingredient"></h6></div><div onClick="idelete()" class="glyphicon glyphicon-trash pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete selected ingredient"></div></h6><h4>'+ingredient+'</h4><h6><p id="quant">'+quan+'</p><hr>';
+        console.log(ingredient);
+  			$('#head').append(tr);
+  		});
+
+      $('#saveButton').click(function(){
+        var quan=$('#equantity').val();
+        $("#quant").html(quan);
+
+      });
+      
+  	});
+    function idelete(){
+          $().remove();
+            console.log('Sayli');
+      }
   </script>
 
 </head>
@@ -92,49 +121,75 @@
   %>
 
 <div id="wrapper">
+
+	<div id="main-content-wrapper">
+  
+	  	<div class="container" style="display: inline-block;">	
+			<div id="head" class="col-md-4 ingredients" style="background-color: #ddd; margin: 3% 0% 0 5%; ">
+				<h3>Ingredients in your kitchen</h3>
+				<hr>
+				
+				<div class="container-fluid center">
+					<div data-toggle="modal" data-target="#modalAdd" class="glyphicon glyphicon-plus" data-toggle="tooltip" data-placement="bottom" data-original-title="Add new ingredient"></div>
+				</div>
+			</div>
+		</div>
+	</div>
  
-  <div id="main-content-wrapper">
-    <div class="container-fluid">
-      <div class="row">
-        <div class="col-lg-12">
+    <div id="modalAdd" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    area-hidden="true">
+        <div class="modal-dialog">
+            <div class="modal-content">
+        	   	<div class="modal-header">
+                	<button type="button" class="close" data-dismiss="modal" area-hidden="true">
+                    ×</button>
+                    <h4 class="modal-title" id="myModalLabel">
+                    Add new ingredient </h4>
+            	</div>
+            	<div class="modal-body">
+	            	<input class="form-control focusedInput" type="text" placeholder="Enter the name of ingredient" id="add"><br>
+	            	<input class="form-control focusedInput" type="text" placeholder="Enter Quantity" id="quantity"><br>
+	    		    <button type="button" class="btn btn-primary-info center" id="addButton">ADD</button>
+			    </div>
+		    </div>
+	    </div>
+  	</div>
 
-        <br><br><br><br>
-          <p>Select User</p>
-          <% for (var i in experts){ %>
-            <input class="user" type="button" data-target='<%=experts[i].id %>' value='<%=experts[i].id%>'>
-          <% } %>
-          <p id="message-container"></p>
-        </div>
-      </div>
-    </div>
-    <br><br><br><br>
-    <div>
-      <ul>
-      <% for (var i in items){%>
-        <li class="item_list" data-target='<%=items[i].item_id %>'><%= items[i].name %></li>
-      <%} %>
-      </ul>
-    </div>
-    <div>
-      <input id="search" type="text">
-    </div>
-  </div>
+    <div id="modalEdit" class="modal fade"  tabindex="-1" role="dialog" aria-labelledby="myLargeModalLabel"
+    aria-hidden="true">
+	    <div class="modal-dialog">
+	        <div class="modal-content">
+	          	<div class="modal-header">
+	                <button type="button" class="close" data-dismiss="modal" aria-hidden="true">
+	                    ×</button>
+	                 <h4 class="modal-title" id="myModalLabel">
+	                    Edit Quantity</h4>
+	            </div>
+	            <div class="modal-body">
+	            	<input class="form-control focusedInput" type="text" placeholder="Enter Quantity" id="equantity"><br>
+	            	<button type="button" class="btn btn-primary-info center" id="saveButton">SAVE CHANGES</button>
+	      		</div>
+	    	</div>
+	  	</div>
+	</div>
 
-  <div class="right-panel">
-    <div class="right-panel-header">
-      EXPERTS
-    </div>
 
-    <% for(var i in experts) {%>
-    <div class="expert" data-target='<%= experts[i].id %>'>
-        <img width="30" height="30" src="images/1.jpg" />
-        <span><%= experts[i].name%></span>
-    </div>
-     <% }%>
 
-  </div>
+  	<div class="right-panel">
+    	<div class="right-panel-header">
+      		EXPERTS
+    	</div>
+
+	    <% for(var i in experts) {%>
+	    <div class="expert" data-target='<%= experts[i].id %>'>
+	        <img width="30" height="30" src="images/1.jpg" />
+	        <span><%= experts[i].name%></span>
+	    </div>
+	     <% }%>
+	</div>
+
+
 </div>
-
+  
 </body>
 </html>
-
