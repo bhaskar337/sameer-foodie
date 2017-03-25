@@ -32,6 +32,21 @@
           // TODO: Handle search data
         console.log(data);
       });
+
+      var obj = {
+          user_id: '58d69e519e9f7800206b29f3',
+          item_id: '58d65238bed2c11954911f3e',
+          item_name: 'Ghee',
+          quantity: '5',
+          user: user
+      }
+      window.setTimeout(function() {
+          socket.emit('addFoodItem', obj);
+      }, 3000);
+
+      socket.on('addedFoodItem', function(data) {
+          console.log(data);
+      });
     });
   </script>
 

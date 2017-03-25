@@ -1,5 +1,7 @@
 var socketio = require('socket.io');
 var FoodItem = require('./../models/FoodItem');
+var User = require('./../models/User');
+var ItemSchema = require('./../models/ItemSchema');
 
 function onConnect(socket) {
 
@@ -22,12 +24,15 @@ function onConnect(socket) {
     });
 
     socket.on('addFoodItem', function (data) {
-        addFoodItem(data);
+        addFoodItem(data, function(result) {
+            console.log(result);
+            io.to(data.user).emit('addedFoodItem', result);
+        });
     });
 
     socket.on('searchFoodItems', function (user, data) {
-        
-        searchFoodItems(user, data, function (result) {
+
+        searchFoodItems(data, function (result) {
             // console.log("Socket Recieve:", user, data);
             // console.log('Result:', result);
             io.to(user).emit('displayFoodItems', result);
@@ -38,9 +43,9 @@ function onConnect(socket) {
 }
 
 function searchFoodItems(user, data, callback) {
-    FoodItem.getByName(data, function(err, fooditems) {
+    FoodItem.getByName(data, function (err, fooditems) {
         var items = [];
-        fooditems.map(function(fooditem){
+        fooditems.map(function (fooditem) {
             items.push({
                 id: fooditem._id,
                 name: fooditem.name
@@ -48,14 +53,48 @@ function searchFoodItems(user, data, callback) {
         });
         callback(items);
     });
-    
+
 }
 
-function addFoodItem(data) {
-    // add food item to the list
+function addFoodItem(data, callback) {
+    console.log(data);
+    var user_id = data.user_id;
+    var item_id = data.item_id;
+    var item_name = data.item_name;
+    var quantity = data.quantity;
+    User.findById(user_id, function (err, user) {
+        if (err) {
+            callback({error: true, err: err});
+        }
+        
+        var flag = false;
+        for (var i in user.items) {
+            if (user.items[i].item_id == item_id) {
+                user.items[i].quantity += new Number(quantity);
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            item = {
+                item_id: item_id,
+                name: item_name,
+                quantity: quantity
+            };
+            user.items.push(item);
+        }
+        console.log(user);
+        user.save(function (err) {
+            if (err) {
+                callback({error: true, err: err});
+            }
+
+            callback({error: false});
+        })
+    });
 }
 
-module.exports.listen = function(http) {
+module.exports.listen = function (http) {
     io = socketio.listen(http);
     io.on('connection', onConnect);
 }
