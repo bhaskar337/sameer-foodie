@@ -1,5 +1,4 @@
 var express = require('express');
-var mongoose = require('mongoose');
 
 var path = require('path');
 var favicon = require('serve-favicon');
@@ -7,13 +6,22 @@ var logger = require('morgan');
 var cookieParser = require('cookie-parser');
 var bodyParser = require('body-parser');
 
+var expressValidator = require('express-validator');
+var session = require('express-session');
+var passport = require('passport');
+var LocalStrategy = require('passport-local').Strategy;
+var mongo = require('mongodb');
+var mongoose = require('mongoose');
+
+mongoose.connect('mongodb://localhost:27017/sameer_foodie');
+var db = mongoose.connection;
+
 var index = require('./routes/index');
 var users = require('./routes/users');
 
 var app = express();
 var http = require('http').Server(app);
 
-mongoose.connect('mongodb://localhost:27017/sameer_foodie');
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -26,6 +34,36 @@ app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cookieParser());
 app.use(express.static(path.join(__dirname, 'public')));
+
+// Express Session
+app.use(session({
+    secret: 'secret',
+    saveUninitialized: true,
+    resave: true
+}));
+
+// Passport init
+app.use(passport.initialize());
+app.use(passport.session());
+
+// Express Validator
+app.use(expressValidator({
+  errorFormatter: function(param, msg, value) {
+      var namespace = param.split('.')
+      , root    = namespace.shift()
+      , formParam = root;
+
+    while(namespace.length) {
+      formParam += '[' + namespace.shift() + ']';
+    }
+    return {
+      param : formParam,
+      msg   : msg,
+      value : value
+    };
+  }
+}));
+
 
 app.use('/', index);
 app.use('/users', users);
