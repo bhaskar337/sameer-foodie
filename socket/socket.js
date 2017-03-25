@@ -33,6 +33,7 @@ function onConnect(socket) {
     socket.on('removeFoodItem', function (data) {
         removeFoodItem(data, function (result) {
             console.log(result);
+            io.to(data.user).emit('removedFoodItem', result);
         });
     });
 

@@ -1,0 +1,48 @@
+{"_id":{"$oid":"58d65238bed2c11954911f3e"},"name":"Ghee","unit":"LT","buy_link":"https://grofers.com/prn/patanjali-cow-ghee-carton/prid/11196","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d65256bed2c11954911f3f"},"name":"Soyabean Oil","unit":"LT","buy_link":"https://grofers.com/prn/fortune-soya-health-refined-soybean-oil-pouch/prid/52","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d65270bed2c11954911f40"},"name":"Sugar","unit":"KG","buy_link":"https://grofers.com/prn/madhur-sugar/prid/11006","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d652eabed2c11954911f41"},"name":"Wheat Atta","unit":"KG","buy_link":"https://grofers.com/prn/patanjali-whole-wheat-atta/prid/55389","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d652fbbed2c11954911f42"},"name":"Multigrain Atta","unit":"KG","buy_link":"https://grofers.com/prn/aashirvaad-multigrain-atta/prid/108301","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d65358bed2c11954911f43"},"name":"Sunflower Oil","unit":"LT","buy_link":"https://grofers.com/prn/fortune-sunlite-refined-sunflower-oil-pouch/prid/43","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d65368bed2c11954911f44"},"name":"Salt","unit":"KG","buy_link":"https://grofers.com/prn/tata-lite-salt/prid/106","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d6537fbed2c11954911f45"},"name":"Besan","unit":"KG","buy_link":"https://grofers.com/prn/patanjali-regular-besan/prid/10917","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d65485bed2c11954911f46"},"name":"Basmati Rice","unit":"KG","buy_link":"https://grofers.com/prn/best-value-everyday-basmati-rice/prid/318606","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d6551dbed2c11954911f47"},"name":"Green Moong Dal","unit":"GM","buy_link":"https://grofers.com/prn/best-value-chilka-green-moong-dal/prid/318552","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d65529bed2c11954911f48"},"name":"Toor Dal","unit":"GM","buy_link":"https://grofers.com/prn/best-value-arhar-daltoor-dal/prid/318544","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d6556cbed2c11954911f49"},"name":"Rajma","unit":"GM","buy_link":"https://grofers.com/prn/best-value-kashmiri-black-rajma/prid/318558","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d6557abed2c11954911f4a"},"name":"Chana","unit":"GM","buy_link":"https://grofers.com/prn/best-value-kala-chanabrown-chana/prid/318545","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d65588bed2c11954911f4b"},"name":"Urad Dal","unit":"GM","buy_link":"https://grofers.com/prn/best-value-sabut-black-urad-dal/prid/318562","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d65595bed2c11954911f4c"},"name":"Masoor Dal","unit":"GM","buy_link":"https://grofers.com/prn/best-value-red-masoor-dal/prid/318614","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d655b1bed2c11954911f4d"},"name":"Chana Dal","unit":"GM","buy_link":"https://grofers.com/prn/best-value-roasted-chana-dal/prid/325088","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d65674bed2c11954911f4e"},"name":"Milk","unit":"LT","buy_link":"https://grofers.com/prn/amul-taaza-toned-milk-polypack/prid/19512","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d65691bed2c11954911f4f"},"name":"Butter","unit":"GM","buy_link":"https://grofers.com/prn/amul-butter/prid/160","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d6569ebed2c11954911f50"},"name":"Paneer","unit":"GM","buy_link":"https://grofers.com/prn/mother-dairy-paneer/prid/192","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d656aabed2c11954911f51"},"name":"Buttermilk","unit":"ML","buy_link":"https://grofers.com/prn/amul-masti-spiced-buttermilk-tetra-pak/prid/19507","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d657173f072034b43fcf6f"},"name":"Cheese Slices","unit":"NUM","buy_link":"https://grofers.com/prn/amul-cheese-slices/prid/168","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d657283f072034b43fcf70"},"name":"Honey","unit":"ML","buy_link":"https://grofers.com/prn/patanjali-honey/prid/10732","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d657343f072034b43fcf71"},"name":"Curd","unit":"GM","buy_link":"https://grofers.com/prn/nestle-a-nourish-curd-cup/prid/187","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d6574d3f072034b43fcf72"},"name":"Cheese","unit":"GM","buy_link":"https://grofers.com/prn/amul-plain-cheese-spread/prid/174","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d657843f072034b43fcf73"},"name":"Lady Finger","unit":"GM","buy_link":"https://grofers.com/prn/lady-finger/prid/3898","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d657923f072034b43fcf74"},"name":"Green Chilli","unit":"GM","buy_link":"https://grofers.com/prn/green-chilli/prid/3897","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d657a13f072034b43fcf75"},"name":"Green Capsicum","unit":"GM","buy_link":"https://grofers.com/prn/green-capsicum/prid/3888","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d657af3f072034b43fcf76"},"name":"Ginger","unit":"GM","buy_link":"https://grofers.com/prn/ginger-adrak/prid/3896","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d657cf3f072034b43fcf77"},"name":"Lemon","unit":"NUM","buy_link":"https://grofers.com/prn/lemon/prid/17748","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d657d73f072034b43fcf78"},"name":"Coriander","unit":"GM","buy_link":"https://grofers.com/prn/coriander/prid/3889","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d657e13f072034b43fcf79"},"name":"Cucumber","unit":"GM","buy_link":"https://grofers.com/prn/cucumber/prid/10088","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d657e83f072034b43fcf7a"},"name":"Garlic","unit":"GM","buy_link":"https://grofers.com/prn/garlic-lehsun/prid/3901","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d657fa3f072034b43fcf7b"},"name":"Bitter Gourd","unit":"GM","buy_link":"https://grofers.com/prn/bitter-gourd-karela/prid/4927","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d658073f072034b43fcf7c"},"name":"Brinjal","unit":"GM","buy_link":"https://grofers.com/prn/large-round-brinjal-bharta/prid/3941","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d658103f072034b43fcf7d"},"name":"Tomato","unit":"GM","buy_link":"https://grofers.com/prn/pumpkin/prid/4920","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d6581b3f072034b43fcf7e"},"name":"Potato","unit":"GM","buy_link":"https://grofers.com/prn/potato/prid/118916","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d658243f072034b43fcf7f"},"name":"Onion","unit":"GM","buy_link":"https://grofers.com/prn/onion/prid/294631","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d658343f072034b43fcf80"},"name":"Mint Leaves","unit":"GM","buy_link":"https://grofers.com/prn/mint-leaves-pudina/prid/3890","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d6583f3f072034b43fcf81"},"name":"Cauliflower","unit":"GM","buy_link":"https://grofers.com/prn/cauliflower/prid/276844","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d658473f072034b43fcf82"},"name":"Banana","unit":"GM","buy_link":"https://grofers.com/prn/yellaki-banana/prid/88275","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d6584e3f072034b43fcf83"},"name":"Coconut","unit":"GM","buy_link":"https://grofers.com/prn/brown-coconut/prid/4943","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d6585e3f072034b43fcf84"},"name":"Watermelon","unit":"GM","buy_link":"https://grofers.com/prn/watermelon/prid/39896","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d658693f072034b43fcf85"},"name":"Cabbage","unit":"GM","buy_link":"https://grofers.com/prn/cabbage/prid/284670","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d658953f072034b43fcf86"},"name":"Bread","unit":"GM","buy_link":"https://grofers.com/prn/britannia-100-whole-wheat-bread/prid/127031","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d658aa3f072034b43fcf87"},"name":"Eggs","unit":"NUM","buy_link":"https://grofers.com/prn/keggs-infertile-brown-eggs/prid/67203","non_veg":true,"__v":0}
+{"_id":{"$oid":"58d658bd3f072034b43fcf88"},"name":"Jam","unit":"GM","buy_link":"https://grofers.com/prn/kissan-mixed-fruit-jam/prid/18934","non_veg":false,"__v":0}
+{"_id":{"$oid":"58d6590c3f072034b43fcf89"},"name":"Chicken","unit":"KG","buy_link":"https://grofers.com/prn/meats-more-drumstick-chicken/prid/361920","non_veg":"true","__v":0}
+{"_id":{"$oid":"58d659313f072034b43fcf8a"},"name":"Mutton","unit":"KG","buy_link":"https://grofers.com/prn/meats-more-biryani-cut-mutton/prid/361900","non_veg":"true","__v":0}

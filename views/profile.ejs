@@ -30,8 +30,16 @@
       });
       
       socket.on('displayFoodItems', function(data){
+<<<<<<< HEAD
           // TODO: Handle search data-target
         console.log(data);
+=======
+          // TODO: Handle search data
+          console.log(data);
+          for (var i in data) {
+              console.log(data[i].name);
+          }
+>>>>>>> origin/master
       });
 
       var obj = {
