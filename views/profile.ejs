@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Slide Menu</title>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+
+  <link rel="stylesheet" type="text/css" href="stylesheets/profile.css">
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
+
+  <script src="javascripts/chat_panel.js"></script>
+  <script src="javascripts/chat_popup.js"></script>
+  <script src="javascripts/chat.js"></script>
+
+  <script type="text/javascript">
+  var socket = io();
+
+    $(document).ready(function(){
+
+      $('.item_list').click(function(){
+        alert($(this).data('target'));
+      });
+      $('#search').keyup(function(){
+        socket.emit('searchFoodItems',user,$(this).val());
+      });
+
+      socket.on('displayFoodItems', function(data){
+        
+      });
+    });
+  </script>
+
+</head>
+<body>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="#">Sameer Foodie</a>
+      <button type="button" class="navbar-toggle btn" data-toggle="collapse" data-target="#myNavbar">
+        <i class="glyphicon glyphicon-chevron-down"></i>
+      </button>
+      <button type="button" class="btn" id="right-panel-button" >
+        <i class="glyphicon glyphicon-chevron-left"></i>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li class="active"><a href="#">Recipes</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="#"><span class="glyphicon glyphicon-log-out"></span> Sign Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
+
+ <%
+  var experts = [
+      {
+          name:"Sayli Uttarwar",
+          id:"sayli"
+      },
+      {
+          name: "Simran Gambani",
+          id: "simran"
+      },
+      {
+        name: "Tej Thakkar",
+        id: "tej"
+      }
+  ];
+  %>
+
+<div id="wrapper">
+ 
+  <div id="main-content-wrapper">
+    <div class="container-fluid">
+      <div class="row">
+        <div class="col-lg-12">
+
+        <br><br><br><br>
+          <p>Select User</p>
+          <% for (var i in experts){ %>
+            <input class="user" type="button" data-target='<%=experts[i].id %>' value='<%=experts[i].id%>'>
+          <% } %>
+          <p id="message-container"></p>
+        </div>
+      </div>
+    </div>
+    <br><br><br><br>
+    <div>
+      <ul>
+      <% for (var i in items){%>
+        <li class="item_list" data-target='<%=items[i].item_id %>'><%= items[i].name %></li>
+      <%} %>
+      </ul>
+    </div>
+    <div>
+      <input id="search" type="text">
+    </div>
+  </div>
+
+  <div class="right-panel">
+    <div class="right-panel-header">
+      EXPERTS
+    </div>
+
+    <% for(var i in experts) {%>
+    <div class="expert" data-target='<%= experts[i].id %>'>
+        <img width="30" height="30" src="images/1.jpg" />
+        <span><%= experts[i].name%></span>
+    </div>
+     <% }%>
+
+  </div>
+</div>
+
+</body>
+</html>
+

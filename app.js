@@ -8,15 +8,12 @@ var bodyParser = require('body-parser');
 
 var index = require('./routes/index');
 var users = require('./routes/users');
-var test = require('./routes/test');
 
 var app = express();
 var http = require('http').Server(app);
 
 var io = require('socket.io')(http);
 //var mongodb=require('mongodb');
-
-
 
 // view engine setup
 app.set('views', path.join(__dirname, 'views'));
@@ -32,7 +29,6 @@ app.use(express.static(path.join(__dirname, 'public')));
 
 app.use('/', index);
 app.use('/users', users);
-app.use('/test', test);
 
 // catch 404 and forward to error handler
 app.use(function(req, res, next) {
@@ -70,88 +66,41 @@ io.on('connection', function(socket){
       });
   });
 
-
-
-  
-
   //when any user sends a message
   socket.on('msg',function(data) { 
 
-      console.log('sending message from',data.user,'to',data.to);
+    console.log('sending message from',data.user,'to',data.to);
 
-      socket.broadcast.to(data.to).emit('newmsg', {from:data.user, message:data.message});
-
-      //store in database
-
-  //    storeMessage(data);
-
-
+    socket.broadcast.to(data.to).emit('newmsg', {from:data.user, message:data.message});
   });
+
+  socket.on('addFoodItem',function(data){
+    addFoodItem(data);
+  });
+
+  socket.on('searchFoodItems',function(user,data){
+    console.log(user,data);
+    searchFoodItems(data,user,function(){
+      
+    });
+   
+  });
+
+
 });
 
-/*
-function loadMessages(user,to,callback){
+function searchFoodItems(data,callback){
 
-  console.log("loading messages");
+  var result={
 
-  var MongoClient = mongodb.MongoClient;
- 
-  // Define where the MongoDB server is
-    var url = 'mongodb://localhost:27017/dating';
- 
-  // Connect to the server
-    MongoClient.connect(url, function (err, db) {
-      if (err) {
-        console.log('Unable to connect to the Server', err);
-      }
-      else {
-      // We are connected
-        console.log('Connection established to', url);
-   
-      // Get the documents collection
-        var collection = db.collection('chat');
-
-        collection.findOne({"members":{$all:[user,to]}},function(err,result){
-          db.close();
-          return callback(result);
-        });
-   
-      }
-  });
-
+  }
+  return callback(result);
 }
 
-function storeMessage(data){
+function addFoodItem(data){
+  // add food item to the list
+}
 
-  console.log("storing message");
-
-  var MongoClient = mongodb.MongoClient;
- 
-  // Define where the MongoDB server is
-    var url = 'mongodb://localhost:27017/dating';
- 
-  // Connect to the server
-    MongoClient.connect(url, function (err, db) {
-      if (err) {
-        console.log('Unable to connect to the Server', err);
-      }
-      else {
-      // We are connected
-        console.log('Connection established to', url);
-   
-      // Get the documents collection
-        var collection = db.collection('chat');
-
-    // store message in database
-        collection.update({"members":{$all:[data.user,data.to]}},{$push:{ messages:{ $each:[{"from":0,"msg":data.message}] ,$position:0 }}},function (err, result) {
-         
-        //Close connection
-          db.close();
-      });
-    }
-  });
-
-}*/
 
 http.listen(3000, function(){
   console.log('listening on localhost:3000');
