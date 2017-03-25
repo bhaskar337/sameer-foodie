@@ -24,15 +24,21 @@ function onConnect(socket) {
     });
 
     socket.on('addFoodItem', function (data) {
-        addFoodItem(data, function(result) {
+        addFoodItem(data, function (result) {
             console.log(result);
             io.to(data.user).emit('addedFoodItem', result);
         });
     });
 
+    socket.on('removeFoodItem', function (data) {
+        removeFoodItem(data, function (result) {
+            console.log(result);
+        });
+    });
+
     socket.on('searchFoodItems', function (user, data) {
 
-        searchFoodItems(data, function (result) {
+        searchFoodItems(user, data, function (result) {
             // console.log("Socket Recieve:", user, data);
             // console.log('Result:', result);
             io.to(user).emit('displayFoodItems', result);
@@ -64,9 +70,9 @@ function addFoodItem(data, callback) {
     var quantity = data.quantity;
     User.findById(user_id, function (err, user) {
         if (err) {
-            callback({error: true, err: err});
+            return callback({ error: true, err: err });
         }
-        
+
         var flag = false;
         for (var i in user.items) {
             if (user.items[i].item_id == item_id) {
@@ -86,10 +92,44 @@ function addFoodItem(data, callback) {
         console.log(user);
         user.save(function (err) {
             if (err) {
-                callback({error: true, err: err});
+                return callback({ error: true, err: err });
             }
 
-            callback({error: false});
+            return callback({ error: false });
+        })
+    });
+}
+
+function removeFoodItem(data, callback) {
+    var user_id = data.user_id;
+    var item_id = data.item_id;
+    var quantity = data.quantity;
+    User.findById(user_id, function (err, user) {
+        if (err) {
+            return callback({ error: true, err: err });
+        }
+
+        var flag = false;
+        for (var i in user.items) {
+            if (user.items[i].item_id == item_id) {
+                if (user.items[i].quantity < new Number(quantity))
+                    return callback({ error: true, err: 'Quantity more than available.' });
+                else
+                    user.items[i].quantity -= new Number(quantity);
+                flag = true;
+                break;
+            }
+        }
+        if (!flag) {
+            return callback({error: true, err: 'Item not available.'});
+        }
+        console.log(user);
+        user.save(function (err) {
+            if (err) {
+                return callback({ error: true, err: err });
+            }
+
+            return callback({ error: false });
         })
     });
 }
