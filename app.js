@@ -86,9 +86,7 @@ app.use(function (err, req, res, next) {
     res.render('error');
 });
 
-var io = require('socket.io')(http);
-var onConnection = require('./socket/socket');
-io.on('connection', onConnection);
+var io = require('./socket/socket').listen(http);
 
 module.exports = app;
 
