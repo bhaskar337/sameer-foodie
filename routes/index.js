@@ -16,8 +16,6 @@ router.get('/', function (req, res, next) {
 // Register User
 router.post('/register', function(req, res){
 
-	console.log("het");
-
 	var name = req.body.name;
 	var email = req.body.email;
 	var password = req.body.password;
@@ -31,8 +29,6 @@ router.post('/register', function(req, res){
 	req.checkBody('password2', 'Passwords do not match').equals(req.body.password);
 
 	var errors = req.validationErrors();
-
-	//verification code
 
 	if(errors){
 		res.render('register',{

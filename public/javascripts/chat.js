@@ -1,7 +1,5 @@
 var socket = io();
 
-var user='sayli';
-
 function setUser(user){
   this.user=user;
   socket.emit('joinRoom',user);
