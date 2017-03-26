@@ -36,6 +36,25 @@
 }
 
 </style>
+<nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <a class="navbar-brand" href="/">Sameer Foodie</a>
+      <button type="button" class="navbar-toggle btn" data-toggle="collapse" data-target="#myNavbar">
+        <i class="glyphicon glyphicon-chevron-down"></i>
+      </button>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav">
+        <li><a href="/users">Profile</a></li>
+        <li class="active"><a href="#">Manage my meal</a></li>
+      </ul>
+      <ul class="nav navbar-nav navbar-right">
+        <li><a href="/logout"><span class="glyphicon glyphicon-log-out"></span>Log Out</a></li>
+      </ul>
+    </div>
+  </div>
+</nav>
 <div>
   <p style="text-align: center; color: white; font-size: 35px;"> <%=recipe.name %> <p>
 </div>
@@ -59,12 +78,6 @@
 <div class="c">
   <p style="color: white; font-size: 23px;">Reviews: </p>
 </div>
-<script type="text/javascript">
-  var $array = [];
-  
-  function send(){
 
-  }
-</script>
 </body>
 </html>

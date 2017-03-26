@@ -5,10 +5,7 @@
 body{
   background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)),url(../images/healthy-food.jpg); height: 100%;
 }
-.nav{
-	height: 50px;
-	border-bottom: 1px solid #ccc;
-}
+
 .container{
 	margin: 0;
 
@@ -120,4 +117,8 @@ body{
     }
     .tooltip.bottom > .tooltip-arrow {
   border-bottom-color: black;
+}
+
+.glyphicon.glyphicon-log-out{
+  padding: 0;
 }
