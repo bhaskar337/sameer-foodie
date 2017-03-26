@@ -21,6 +21,7 @@
   var socket = io();
 
   	var user="<%=_id%>";
+      var items = <%- JSON.stringify(items) %>;
   	setUser(user);
 
     $(document).ready(function(){
@@ -44,6 +45,7 @@
       		$('#search').val(name);	
             $('#search').attr('data-target', id);
       		$('.addIngredients').html('');
+            //  console.log(name, id);
         });
       });
   
@@ -59,23 +61,38 @@
           }
       });
 
-
-/*
-      var obj = {
-          user_id: '58d6ac50decfb733a9f0f315',
-          item_id: '58d65238bed2c11954911f3e',
-          item_name: 'Ghee',
-          quantity: '5',
-          user: user
-      }
-      window.setTimeout(function() {
-          socket.emit('addFoodItem', obj);
-      }, 3000);
-
-*/
       socket.on('addedFoodItem', function(data) {
           console.log(data);
+          if (!data.error) {
+              refreshIngredients(data.items);
+          }
       });
+
+      socket.on('removedFoodItem', function(data) {
+          console.log(data);
+          if (!data.error) {
+              refreshIngredients(data.items);
+          }
+      });
+
+      function refreshIngredients(items) {
+              // TODO: Append to data
+              $('#kitchen').html('');
+              for (var i in items) {
+                  var ingredient = items[i].name;
+              var item_id = items[i].item_id;
+  			var quan = items[i].quantity;
+              /*
+              Edit code
+              <div data-toggle="modal" data-target="#modalEdit" item-id="' + item_id + '" class="edit_btn glyphicon glyphicon-pencil pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Add new ingredient"></h6></div>
+              */
+  			var tr='<div class="container-fluid"><div class="delete_btn glyphicon glyphicon-trash pull-right" item-id="' + item_id + '" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete selected ingredient"></div></h6><h4>'+ingredient+'</h4><h6><p id="quant">'+quan+'</p><hr>';
+       	
+  			$('#kitchen').append(tr);
+              }
+          }
+
+          refreshIngredients(items);
     });
   </script>
   
@@ -89,12 +106,10 @@
 
   		$('#addButton').click(function(){
   			var ingredient = $('#search').val();
-              var item_id = $('#search').data('target');
+              var item_id = $('#search').attr('data-target');
   			var quan = $('#quantity').val();
-  			console.log(ingredient, item_id, quan);
-  			var tr='<div class="container-fluid"><div data-toggle="modal" data-target="#modalEdit" class="glyphicon glyphicon-pencil pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Add new ingredient"></h6></div><div class="delete_btn glyphicon glyphicon-trash pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete selected ingredient"></div></h6><h4>'+ingredient+'</h4><h6><p id="quant">'+quan+'</p><hr>';
-       		console.log(ingredient);
-  			$('#head').append(tr);
+              console.log('Here:',ingredient, item_id, quan);
+
   			$('#modalAdd').modal('hide');
             
             var obj = {
@@ -115,10 +130,15 @@
       	});
 
       	$(document).on('click', '.delete_btn',function(){
-      		$(this).parent().hide();
-      	});
+            var item_id = $(this).attr('item-id');
+            var obj = {
+                item_id: item_id,
+                user_id: user
+            }
 
-      
+            socket.emit('removeFoodItem', obj);
+            $(this).parent().hide();
+      	});
   	});
 
   </script>
@@ -176,6 +196,9 @@
 				<div class="container-fluid center">
 					<div data-toggle="modal" data-target="#modalAdd" class="glyphicon glyphicon-plus" data-toggle="tooltip" data-placement="bottom" data-original-title="Add new ingredient"></div>
 				</div>
+
+                <div id="kitchen">
+                </div>
 			</div>
 		</div>
 	</div>
