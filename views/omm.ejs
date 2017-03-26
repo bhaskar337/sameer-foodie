@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title></title>
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="../stylesheets/omm.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+     
+</head>
+<body>
+    <nav class="navbar navbar-inverse">
+  <div class="container-fluid">
+    <div class="navbar-header">
+      <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#myNavbar">
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>
+        <span class="icon-bar"></span>                        
+      </button>
+      <a class="navbar-brand" href="#">Sameer Foodie</a>
+    </div>
+    <div class="collapse navbar-collapse" id="myNavbar">
+      <ul class="nav navbar-nav pull-right">
+        <li class="dropdown">
+          <a class="dropdown-toggle" data-toggle="dropdown" href="#" style="color: white;">Hi username <span class="caret"></span></a>
+          <ul class="dropdown-menu">
+            <li><a href="#">Edit my profile</a></li>
+            <li><a href="#">Logout</a></li>
+          </ul>
+        </li>
+        
+      </ul>
+    </div>
+  </div>
+</nav>
+  <div class="container">
+  <h2 style="margin-left: 50%;margin-top: 5%;color: white;">RECIPES</h2>
+  
+  <div class="dropdown" style="margin-left: 40%;">
+    <button class="btn btn-default dropdown-toggle" type="button" data-toggle="dropdown">Select a Recipe
+    <span class="caret"></span></button>
+    <ul class="dropdown-menu" style="text-align: center;">
+      <li class="dropdown-header" onclick="retrieve()">Appetizers</li>
+
+      <li class="divider"></li>
+      <li class="dropdown-header" onclick="retrieve()">Dessert</li>
+
+      <li class="divider"></li><li class="dropdown-header" onclick="retrieve()">Meal</li>
+
+      <li class="divider"></li><li class="dropdown-header" onclick="retrieve()">Beverages</li>
+    </ul>
+  </div>
+
+  <div class="recipe_list container-fluid" style="margin: 50px 0 0 25%;text-align: center;">  
+      <% for (var i in results){ %>
+        <div class="col-md-8" id="rec1" style="background-color: #ccc;">
+          <h2> <a><%= results[i].recipe.name %></a></h2>
+          <h3>Ingredients: <%=results[i].recipe.name%> </h3>
+        </div>
+
+      <%} %>
+      
+  </div>
+</div>
+
+</body>
+</html>

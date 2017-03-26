@@ -14,6 +14,7 @@ var reviewSchema = new mongoose.Schema({
 });
 
 var recipeSchema = new mongoose.Schema({
+    name: String,
     category: String,
     ingredients: [itemSchema],
     steps: [String],
