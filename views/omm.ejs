@@ -56,7 +56,7 @@
           <% for (var j = 0; j < results[i].recipe.ingredients.length; j++) { %>
                 <span style='font-size: 22px'><%= results[i].recipe.ingredients[j].name %>, </span>
           <% } %><br>
-          <span>You already have <%= results[i].ratio * 100 %>% of the ingredients.</span>
+          <span>You already have <%= (results[i].ratio * 100).toPrecision(4) %>% of the ingredients.</span>
           <hr style="border:1px solid black">
         </div>
 

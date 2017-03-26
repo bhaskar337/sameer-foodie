@@ -1,0 +1,139 @@
+{
+  "fields": [
+    {
+      "name": "_id",
+      "path": "_id",
+      "count": 1,
+      "types": [
+        {
+          "name": "ObjectID",
+          "bsonType": "ObjectID",
+          "path": "_id",
+          "count": 1,
+          "values": [
+            "58d7241d83868606bc3501da"
+          ],
+          "total_count": 0,
+          "probability": 1,
+          "unique": 1,
+          "has_duplicates": false
+        }
+      ],
+      "total_count": 1,
+      "type": "ObjectID",
+      "has_duplicates": false,
+      "probability": 1
+    },
+    {
+      "name": "ingredients",
+      "path": "ingredients",
+      "count": 1,
+      "types": [
+        {
+          "name": "Array",
+          "bsonType": "Array",
+          "path": "ingredients",
+          "count": 1,
+          "types": [
+            {
+              "name": "Document",
+              "bsonType": "Document",
+              "path": "ingredients",
+              "count": 2,
+              "fields": [
+                {
+                  "name": "item_id",
+                  "path": "ingredients.item_id",
+                  "count": 2,
+                  "types": [
+                    {
+                      "name": "String",
+                      "bsonType": "String",
+                      "path": "ingredients.item_id",
+                      "count": 2,
+                      "values": [
+                        "58d65238bed2c11954911f3e",
+                        "58d65256bed2c11954911f3f"
+                      ],
+                      "total_count": 0,
+                      "probability": 1,
+                      "unique": 2,
+                      "has_duplicates": false
+                    }
+                  ],
+                  "total_count": 2,
+                  "type": "String",
+                  "has_duplicates": false,
+                  "probability": 1
+                },
+                {
+                  "name": "name",
+                  "path": "ingredients.name",
+                  "count": 2,
+                  "types": [
+                    {
+                      "name": "String",
+                      "bsonType": "String",
+                      "path": "ingredients.name",
+                      "count": 2,
+                      "values": [
+                        "A",
+                        "B"
+                      ],
+                      "total_count": 0,
+                      "probability": 1,
+                      "unique": 2,
+                      "has_duplicates": false
+                    }
+                  ],
+                  "total_count": 2,
+                  "type": "String",
+                  "has_duplicates": false,
+                  "probability": 1
+                },
+                {
+                  "name": "quantity",
+                  "path": "ingredients.quantity",
+                  "count": 2,
+                  "types": [
+                    {
+                      "name": "String",
+                      "bsonType": "String",
+                      "path": "ingredients.quantity",
+                      "count": 2,
+                      "values": [
+                        "1",
+                        "1"
+                      ],
+                      "total_count": 0,
+                      "probability": 1,
+                      "unique": 1,
+                      "has_duplicates": true
+                    }
+                  ],
+                  "total_count": 2,
+                  "type": "String",
+                  "has_duplicates": true,
+                  "probability": 1
+                }
+              ],
+              "total_count": 0,
+              "probability": 1
+            }
+          ],
+          "lengths": [
+            2
+          ],
+          "total_count": 2,
+          "probability": 1,
+          "average_length": 2
+        }
+      ],
+      "total_count": 1,
+      "type": "Array",
+      "has_duplicates": false,
+      "probability": 1
+    }
+  ],
+  "count": 1
+}
