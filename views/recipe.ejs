@@ -3,7 +3,7 @@
 <head>
   <title>individual recipe</title>
 </head>
-<body style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../images/cooking.png); background-repeat: no-repeat; background-size: cover;">
+<body style="background-image: linear-gradient(rgba(0,0,0,0.5),rgba(0,0,0,0.5)), url(../../images/cooking.png); background-repeat: no-repeat; background-size: cover;">
 <style type="text/css">
   
   .b{
@@ -42,13 +42,22 @@
 <div>
 </div>
     <p style="color: white; font-size: 23px;"> Category:  <%=recipe.category %> </p>
+    <hr>
 <div>
-  <p style="color: white; font-size: 23px;"> Ingredients: <% for (var i in recipe.ingredients){  %> </p> 
+  <p style="color: white; font-size: 23px;"> Ingredients: </p>
+  <% for (var j = 0; j < recipe.ingredients.length; j++) { %>
+                <span style='font-size: 22px; color: white'><%= recipe.ingredients[j].name %>, </span>
+          <% } %> 
 </div>
-<div class="abc " style="color: white; font-size: 23px;">Steps: <br> </div>
+<hr>
+<div class="abc " style="color: white; font-size: 23px;">Steps: <br>
+<% for (var j = 0; j < recipe.steps.length; j++) { %>
+                <span style='font-size: 18px; color: white'><%= recipe.steps[j] %></span><br>
+          <% } %> 
+</div>
 
 <div class="c">
-  <p style="color: white; font-size: 23px;">Reviews: <% for (var i in recipe.ingredients){  %> </p>
+  <p style="color: white; font-size: 23px;">Reviews: </p>
 </div>
 <script type="text/javascript">
   var $array = [];

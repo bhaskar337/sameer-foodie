@@ -56,10 +56,14 @@
   <div class="recipe_list container-fluid" style="margin: 50px 0 0 25%;text-align: center;">  
       <% for (var i in results){ %>
         <div class="col-md-8" id="rec1" style="background-color: #ccc;">
-          <h2> <a><%= results[i].recipe.name %></a></h2>
-          <h3>Ingredients: <%=results[i].recipe.name%> </h3>
+          <h2> <a href="/users/recipe/<%= results[i].recipe._id %>"><%= results[i].recipe.name %></a></h2>
+          <h3>Ingredients:</h3>
+          <% for (var j in results[i].recipe.ingredients) { %>
+                <span style='font-size: 22px'><%= results[i].recipe.ingredients[j].name %>, </span>
+          <% } %>
+          <div>You already have <%= results[i].ratio * 100 %>% of the ingredients.</div>
+          <hr>
         </div>
-
       <%} %>
       
   </div>

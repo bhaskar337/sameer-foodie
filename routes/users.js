@@ -40,10 +40,10 @@ router.get('/organise', function (req, res, next) {
                         item_id:"58d65256bed2c11954911f3f",
                         name:"b",
                         quantity:3
-                    }],
-                    commanValues: ["58d65238bed2c11954911f3e"],
-                    ratio: 0.5
-                }
+                    }]
+                },
+                commonValues: ["58d65238bed2c11954911f3e"],
+                ratio: 0.5
             },
             {
                 recipe: {
@@ -59,10 +59,10 @@ router.get('/organise', function (req, res, next) {
                         item_id:"58d65256bed2c11954911f3f",
                         name:"b",
                         quantity:3
-                    }],
-                    commanValues: ["58d65238bed2c11954911f3e"],
-                    ratio: 0.5
-                }
+                    }]
+                },
+                commanValues: ["58d65238bed2c11954911f3e"],
+                ratio: 0.5
             }
         ];
         res.render('omm',{results:results});
