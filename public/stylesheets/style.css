@@ -8,9 +8,10 @@
     margin-top: 25px;
     padding: 20px;
 }
-.about :after{
-    height: 200px;
+.about{
+    border:5px solid #ddd;
 }
+
 div#OR {
     height: 30px;
     width: 30px;
@@ -84,4 +85,29 @@ div#OR {
   .transition;
   .transition-delay(.2s);
   &:hover { background: #00d9ff; .transition; }
+}
+
+.fa-twitter {
+    color: #4099FF;
+}
+
+.fa-facebook {
+    color: #3B5998;
+}
+
+.fa-youtube-play {
+    color: #e52d27;
+}
+
+.fa-pinterest {
+    color: #00a478;
+}
+
+
+.fa-instagram {
+    color: #6441A5;
+}
+
+.fa-linkedin {
+    color: #007bb6;
 }
