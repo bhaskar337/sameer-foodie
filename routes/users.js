@@ -29,40 +29,40 @@ router.get('/organise', function (req, res, next) {
             {
                 recipe: {
                     _id:"58d7241d83868606bc3501da",
-                    name:"as",
+                    name:"Gajar Halwa",
                     ingredients:[
                     {
                         item_id:"58d65238bed2c11954911f3e",
-                        name:"a",
+                        name:"Carrot",
                         quantity:1
                     },
                     {
                         item_id:"58d65256bed2c11954911f3f",
-                        name:"b",
+                        name:"Sugar",
                         quantity:3
                     }]
                 },
                 commonValues: ["58d65238bed2c11954911f3e"],
-                ratio: 0.5
+                ratio: 0.7
             },
             {
                 recipe: {
                     _id:"58d7241d83868606bc3501da",
-                    name:"asasa",
+                    name:"Chocolate Brownie",
                     ingredients:[
                     {
                         item_id:"58d65238bed2c11954911f3e",
-                        name:"a",
+                        name:"Cocoa Powder",
                         quantity:1
                     },
                     {
                         item_id:"58d65256bed2c11954911f3f",
-                        name:"b",
+                        name:"Milk Powder",
                         quantity:3
                     }]
                 },
                 commanValues: ["58d65238bed2c11954911f3e"],
-                ratio: 0.5
+                ratio: 0.3
             }
         ];
         res.render('omm',{results:results});

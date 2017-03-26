@@ -5,7 +5,14 @@ var passport = require('passport');
 var LocalStrategy = require('passport-local').Strategy;
 
 var User = require('../models/User');
+var FoodItem = require('../models/FoodItem');
 
+
+router.get('/items', function(req, res, next) {
+    FoodItem.find(function(err, items) {
+        res.send(items);
+    })
+})
 
 /* GET home page. */
 router.get('/', function(req, res, next) {
