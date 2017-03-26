@@ -31,13 +31,18 @@
       });
       $('#search').keyup(function(){
       	if ($(this).val()){
-        	socket.emit('searchFoodItems',user,$(this).val());
+              var data = {
+                  user_id: user,
+                  val: $(this).val()
+              }
+        	socket.emit('searchFoodItems',data);
       	}
 
       	$(document).on('click', '.search_list',function(){
       		var id=$(this).data('target');
       		var name=$(this).html();
       		$('#search').val(name);	
+            $('#search').attr('data-target', id);
       		$('.addIngredients').html('');
         });
       });
@@ -84,13 +89,22 @@
 
   		$('#addButton').click(function(){
   			var ingredient = $('#search').val();
+              var item_id = $('#search').data('target');
   			var quan = $('#quantity').val();
-  			
+  			console.log(ingredient, item_id, quan);
   			var tr='<div class="container-fluid"><div data-toggle="modal" data-target="#modalEdit" class="glyphicon glyphicon-pencil pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Add new ingredient"></h6></div><div class="delete_btn glyphicon glyphicon-trash pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete selected ingredient"></div></h6><h4>'+ingredient+'</h4><h6><p id="quant">'+quan+'</p><hr>';
        		console.log(ingredient);
   			$('#head').append(tr);
   			$('#modalAdd').modal('hide');
+            
+            var obj = {
+                item_id: item_id,
+                item_name: ingredient,
+                quantity: quan,
+                user_id: user
+            }
 
+            socket.emit('addFoodItem', obj);
   		});
 
       	$('#saveButton').click(function(){
