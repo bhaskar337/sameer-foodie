@@ -25,6 +25,7 @@
 
     $(document).ready(function(){
 
+
       $('.item_list').click(function(){
         alert($(this).data('target'));
       });
@@ -32,14 +33,28 @@
       	if ($(this).val()){
         	socket.emit('searchFoodItems',user,$(this).val());
       	}
+
+      	$(document).on('click', '.search_list',function(){
+      		var id=$(this).data('target');
+      		var name=$(this).html();
+      		$('#search').val(name);	
+      		$('.addIngredients').html('');
+        });
       });
-   
+  
+   		
+
       socket.on('displayFoodItems', function(data){
           // TODO: Handle search data
+          $('.addIngredients').html('');
            for (var i in data) {
               console.log(data[i].name);
+              var tr='<li class="search_list" data-target='+data[i].id+'>'+data[i].name+'</li></a>'
+              $('.addIngredients').append(tr);
           }
       });
+
+
 /*
       var obj = {
           user_id: '58d6ac50decfb733a9f0f315',
@@ -61,30 +76,37 @@
   
   <script type="text/javascript">
   	$(document).ready(function(){
+
   		$("body").tooltip({   
-    selector: "[data-toggle='tooltip']",
-    container: "body"
-  });
+		    selector: "[data-toggle='tooltip']",
+		    container: "body"
+		});
+
   		$('#addButton').click(function(){
-  			var ingredient = $('#add').val();
+  			var ingredient = $('#search').val();
   			var quan = $('#quantity').val();
   			
-  			var tr='<div class="container-fluid"><div data-toggle="modal" data-target="#modalEdit" class="glyphicon glyphicon-pencil pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Add new ingredient"></h6></div><div onClick="idelete()" class="glyphicon glyphicon-trash pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete selected ingredient"></div></h6><h4>'+ingredient+'</h4><h6><p id="quant">'+quan+'</p><hr>';
-        console.log(ingredient);
+  			var tr='<div class="container-fluid"><div data-toggle="modal" data-target="#modalEdit" class="glyphicon glyphicon-pencil pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Add new ingredient"></h6></div><div class="delete_btn glyphicon glyphicon-trash pull-right" data-toggle="tooltip" data-placement="bottom" data-original-title="Delete selected ingredient"></div></h6><h4>'+ingredient+'</h4><h6><p id="quant">'+quan+'</p><hr>';
+       		console.log(ingredient);
   			$('#head').append(tr);
+  			$('#modalAdd').modal('hide');
+
   		});
 
-      $('#saveButton').click(function(){
-        var quan=$('#equantity').val();
-        $("#quant").html(quan);
+      	$('#saveButton').click(function(){
+        	var quan=$('#equantity').val();
+       	 	$("#quant").html(quan);
+       	 	$('#modalEdit').modal('hide');
 
-      });
+      	});
+
+      	$(document).on('click', '.delete_btn',function(){
+      		$(this).parent().hide();
+      	});
+
       
   	});
-    function idelete(){
-          $().remove();
-            console.log('Sayli');
-      }
+
   </script>
 
 </head>
@@ -155,13 +177,14 @@
                     Add new ingredient </h4>
             	</div>
             	<div class="modal-body">
-	            	<input class="form-control focusedInput" type="text" placeholder="Enter the name of ingredient" id="search"><br>
+	            	<input class="form-control focusedInput" type="text" placeholder="Enter the name of ingredient" id="search" required><br>
 	            	<nav class="adding">
-	            		<ul>
-	            			<li></li>
+	            		<ul class="addIngredients">
+	            		
+	            			
 	            		</ul>
 	            	</nav>
-	            	<input class="form-control focusedInput" type="text" placeholder="Enter Quantity" id="quantity"><br>
+	            	<input class="form-control focusedInput" type="text" placeholder="Enter Quantity" id="quantity" required><br>
 	    		    <button type="button" class="btn btn-primary-info center" id="addButton">ADD</button>
 			    </div>
 		    </div>
@@ -203,6 +226,6 @@
 
 
 </div>
-  
+
 </body>
 </html>
