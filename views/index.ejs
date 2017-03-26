@@ -7,20 +7,21 @@
 <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Raleway">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
 <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-<link rel="stylesheet" type="text/css" href="animate.css">
+<link rel="stylesheet" type="text/css" href="stylesheets/animate.css">
 <link rel="stylesheet" type="text/css" href="stylesheets/style.css">
+<link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.2.0/css/font-awesome.min.css" rel="stylesheet">
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.1.1/jquery.min.js"></script>
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
 <style>
 body,h1 {font-family: "Raleway", sans-serif}
 body, html {height: 100%;
-	}
+    }
 .bgimg {
-    background-image: url('images/back.jpg');
+    background:linear-gradient( rgba(0, 0, 0, 0.2), rgba(0, 0, 0, 0.2) ), url('images/back.jpg');
     height: 850px;
     min-width: 100%;
     
-    animation: bgimg 8s linear infinite;
+    animation: bgimg 8s linear;
     background-position: center;
     background-size: cover;
 }
@@ -28,20 +29,20 @@ body{
 
 }
 .clearfix{
-	clear: both;
+    clear: both;
 }
 @keyframes bgimg{
-	from {
-    			top: -10%;
-    		}
-    		to {
-    			top: 0%;
-    		}
+    from {
+                top: -10%;
+            }
+            to {
+                top: 0%;
+            }
 }
 .login{
-	
-	text-align: center;
-	margin-left: 40%;
+    
+    text-align: center;
+    margin-left: 40%;
 }
 
 </style>
@@ -102,13 +103,13 @@ body{
                                     </div>
                                     <div class="col-sm-10">
                                         <input type="submit" class="btn btn-primary btn-sm" value="Login">
-                                        <a href="javascript:;">Forgot your password?</a>
+                                       &nbsp;&nbsp;&nbsp; <a href="javascript:;">Forgot your password?</a>
                                     </div>
                                 </div>
                                 </form>
                             </div>
                             <div class="tab-pane" id="Registration">
-                                <form role="form" class="form-horizontal" method="post" action="/register">
+                                <form role="form" class="form-horizontal" method="post" action="" onSubmit="return validate(this);">
                                 <div class="form-group">
                                     <label for="email" class="col-sm-2 control-label">
                                         Name</label>
@@ -143,33 +144,15 @@ body{
                                     <div class="col-sm-2">
                                     </div>
                                     <div class="col-sm-10">
-                                        <input type="submit" class="btn btn-primary btn-sm" value="Register">
+                                        <input type="submit" class="btn btn-primary btn-sm" value="Register" onSubmit="return validate(this);">
                                 
-                                        <button type="button" class="btn btn-default btn-sm">
-                                            Cancel</button>
+                                        
                                     </div>
                                 </div>
                                 </form>
                             </div>
                         </div>
-                        <div id="OR" class="hidden-xs">
-                            OR</div>
-                    </div>
-                    <div class="col-md-4">
-                        <div class="row text-center sign-with">
-                            <div class="col-md-12">
-                                <h3>
-                                    Sign in with</h3>
-                            </div>
-                            <div class="col-md-12">
-                                <div class="btn-group btn-group-justified">
-                                    <a href="#" class="btn btn-primary">Facebook</a> <a href="#" class="btn btn-danger">
-                                        Google</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </div>
+                        </div></div>
             </div>
         </div>
     </div>
@@ -177,19 +160,51 @@ body{
 
 <div class="clearfix"></div>
 
-<div class="container" style="margin-top: -100px;position: absolute;height: 400px;background-color:;width: 100%;">
-	<div class="row">
-	
-		<div class="well" style="background-color: white;border:0px;">
-			<h1 style="margin: 30px;" class="animated fadeInUp">ABOUT US</h1>
-			<p class="animated fadeInUp">Blood donation also burns the extra calories and reduces your cholesterol level. After donating blood, the count of blood cells decreases in our body, which stimulates the bone marrow to produce new red blood cells in order to replenish the loss. So, it stimulates the production of new blood cells and refreshes the system.
-Blood donation is The most valued service to mankind . Nothing is comparable to the preciousness of human blood. “The gift of blood is the gift of life. There is no substitute for human blood. Blood cannot be manufactured – it can only come from generous donors.”</p>
-		</div>
-	</div>
-</div>   
-<div class="clearfix"></div>
+<div class="container" style="margin-top: -100px;position: absolute;height: auto;background-color:;width: 100%;">
+    <div class="row">
+    
+        <div class="well" style="background-color: white;border-top:5px solid #424242;">
+            <h1 style="margin: 30px 0 30px 0;" class="animated fadeInUp">ABOUT US</h1><hr style="width: 20%;color: #000000;">
+            <h3 class="animated fadeInUp">At Sameer Foodie, we all come to work everyday because we want to solve the biggest problem in the kitchen. Everyone is guessing. Mother's can't figure out which recipes to cook, or how to even make them. They dont't know what the ingredients are and don't even know the best place to buy them.
+<br><br>
+Throughout the history of households, mother's have used data to make a more informed decision. Our Mission here at Sameer Foodie is to make things easy for these home makers. Today we provide the most dynamic kitchen management webapp because our grandfathers loved Foodie :)</h3>
+        </div>
+    </div>
+    <div class="row" style="background-color: #ccc;height: auto;border-top: 5px solid #424242;position: relative;text-align: center;">
+    <div class="container" style="margin-top: 20px">
+             
+              <a href='#'><i class="fa fa-facebook fa-3x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-twitter fa-3x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-youtube-play fa-3x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-pinterest fa-3x fa-fw"></i></a>
+              <a href='#'><i class="fa fa-instagram fa-3x fa-fw"></i></a>   
+              <a href='#'><i class="fa fa-linkedin fa-3x fa-fw"></i></a>
+            </span>
+      </div><br>
+    <hr style="width: 50%;margin: auto;">
+<br>      <p>© Copyright 2017 by Sameer Foodie. All rights reserved.</p>
+</div>  
+</div>
+<script type="text/javascript">
+    var checkName=/^[A-Za-z]{3,20}$/;
+    var checkPassword =  /^[A-Za-z0-9!@#$%^&*()_]{6,20}$/;
+    function validate(form){
+        var name=form.name.value;
+        var password=form.password.value;
+        var password2=form.password2.value;
 
-<script src="js/wow.min.js" type="text/javascript"></script>
+        if(!checkName.test(name)){
+            alert("Enter a valid name");
+        }
+        if(!checkPassword.test(password)){
+            alert("Enter password between 6-20 characters.");
+        }
+        if(password2!=password){
+            alert("The passwords do not match.Please try again.");
+        }
+    }
+</script>
+
 
 </body>
 </html>
