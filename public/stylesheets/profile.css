@@ -209,3 +209,5 @@ body{
   0% {opacity: 0;}
   100% {opacity: 1;}
 }
+nav .adding ul{height:200px; width:18%;}
+nav .adding ul{overflow:hidden; overflow-y:scroll;}

@@ -34,7 +34,6 @@
       });
    
       socket.on('displayFoodItems', function(data){
-         
           // TODO: Handle search data
            for (var i in data) {
               console.log(data[i].name);
@@ -155,6 +154,11 @@
             	</div>
             	<div class="modal-body">
 	            	<input class="form-control focusedInput" type="text" placeholder="Enter the name of ingredient" id="search"><br>
+	            	<nav class="adding">
+	            		<ul>
+	            			<li></li>
+	            		</ul>
+	            	</nav>
 	            	<input class="form-control focusedInput" type="text" placeholder="Enter Quantity" id="quantity"><br>
 	    		    <button type="button" class="btn btn-primary-info center" id="addButton">ADD</button>
 			    </div>
