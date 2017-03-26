@@ -84,16 +84,12 @@ passport.deserializeUser(function(id, done) {
   });	
 });
 
-router.post('/login',
-  	passport.authenticate('local'),
-  	function(req, res) {
-    	res.redirect('/users');
-});
+router.post('/login', passport.authenticate('local',{successRedirect:'/users',failureRedirect:'/'}));
 
 
 router.get('/logout', function(req, res){
 	req.logout();
-	res.redirect('/users/login');
+	res.redirect('/');
 });
 
 
